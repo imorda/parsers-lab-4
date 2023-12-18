@@ -1,0 +1,29 @@
+grammar gram.calculator;
+
+root e;
+
+e -> `Int`: t e1(`nonTerm1`) -> `nonTerm2`;
+e1(`prev: Int`) -> `Int`:
+    PLUS t `value = prev + nonTerm1` e1(`value`) -> `nonTerm2`
+    | MINUS t `value = prev - nonTerm1` e1(`value`) -> `nonTerm2`
+    | -> `prev`;
+
+t -> `Int`: f t1(`nonTerm1`) -> `nonTerm2`;
+t1(`prev: Int`) -> `Int`:
+    MULTIPLY f `value = prev * nonTerm1` t1(`value`) -> `nonTerm2`
+    | DIVIDE f `value = prev / nonTerm1` t1(`value`) -> `nonTerm2`
+    | -> `prev`;
+
+f -> `Int`:
+    NUMBER -> `term1.toInt()`
+    | LBRACKET e RBRACKET -> `nonTerm1`;
+
+
+NUMBER: /[-]?[0-9]+/;
+PLUS: "+";
+MINUS: "-";
+MULTIPLY: "*";
+DIVIDE: "/";
+LBRACKET: "(";
+RBRACKET: ")";
+WS: /[ \t\r\n]+/ skip;

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ANTLRGenerationPreferences">
+    <option name="perGrammarGenerationSettings">
+      <list>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/src/main/antlr/ru.itmo.chizhikov/HaskelMath.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="C:\Users\btima\Desktop\ITMO\Semester-5\МТ\lab-3\src\main\java" />
+          <option name="libDir" value="C:\Users\btima\Desktop\ITMO\Semester-5\МТ\lab-3\src\main\antlr" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="ru.itmo.chizhikov.antlrGenerated" />
+          <option name="language" value="Java" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/src/main/antrl/cpp.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="C:\Users\btima\Desktop\ITMO\Semester-5\МТ\lab-3\src\main\java" />
+          <option name="libDir" value="C:\Users\btima\Desktop\ITMO\Semester-5\МТ\lab-3\src\main\antrl" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="antlr" />
+          <option name="language" value="Java" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
+        <PerGrammarGenerationSettings>
+          <option name="fileName" value="$PROJECT_DIR$/src/main/antrl/gram.g4" />
+          <option name="autoGen" value="true" />
+          <option name="outputDir" value="C:\Users\btima\Desktop\ITMO\Semester-5\МТ\lab-4\src\main\java" />
+          <option name="libDir" value="C:\Users\btima\Desktop\ITMO\Semester-5\МТ\lab-4\src\main\antrl" />
+          <option name="encoding" value="" />
+          <option name="pkg" value="antlr" />
+          <option name="language" value="Java" />
+          <option name="generateVisitor" value="true" />
+        </PerGrammarGenerationSettings>
+      </list>
+    </option>
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Kotlin SDK" project-jdk-type="KotlinSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

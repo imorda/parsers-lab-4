@@ -1,0 +1,9 @@
+# Project exclude paths
+/.gradle/
+/build/
+/out/
+gradlew
+gradlew.bat
+settings.gradle
+src/main/kotlin/gram/*
+src/main/java/antlr/*

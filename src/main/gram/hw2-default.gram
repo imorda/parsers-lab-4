@@ -1,0 +1,38 @@
+grammar gram.hw2.default;
+
+root start;
+
+start: For LBracket type Word Assign Num Semicolon Word cmp Num Semicolon Word modify RBracket;
+
+modify: Inc
+      | Dec;
+
+cmp: LE
+   | GE
+   | LT
+   | GT;
+
+type: Int
+    | Char
+    | Long;
+
+For: "for";
+LBracket: "(";
+Assign: "=";
+Semicolon: ";";
+RBracket: ")";
+
+Inc: "++";
+Dec: "--";
+
+LE: "<=";
+GE: ">=";
+LT: "<";
+GT: ">";
+
+Int: "int";
+Char: "char";
+Long: "long";
+Word: /([_a-zA-Z])([_\-a-zA-Z0-9])*/;
+Num: /[-]?[0-9]+/;
+WS: /[ \t\r\n]+/ skip;
