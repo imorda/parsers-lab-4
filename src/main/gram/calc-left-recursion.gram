@@ -1,0 +1,20 @@
+grammar gram.calculator_bad;
+
+root e;
+
+e: t PLUS e
+   | t MINUS e;
+t: f MULTIPLY t
+   | f DIVIDE t;
+f: NUMBER
+ | LBRACKET e RBRACKET;
+
+
+NUMBER: /[-]?[0-9]+/;
+PLUS: "+";
+MINUS: "-";
+MULTIPLY: "*";
+DIVIDE: "/";
+LBRACKET: "(";
+RBRACKET: ")";
+WS: /[ \t\r\n]+/ skip;

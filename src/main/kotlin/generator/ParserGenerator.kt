@@ -1,5 +1,7 @@
 package generator
 
+import common.ParseException
+
 class ParserGenerator(private val walker: Walker) : CommonCodeGenerator() {
 
     private val first = mutableMapOf<NonTerminalRule, MutableSet<String?>>() // Rule -> Set(tokens)
@@ -8,6 +10,7 @@ class ParserGenerator(private val walker: Walker) : CommonCodeGenerator() {
     init {
         evalFirst()
         evalFollow()
+        ll1Check()
     }
 
     private fun evalFirst() {
@@ -76,6 +79,32 @@ class ParserGenerator(private val walker: Walker) : CommonCodeGenerator() {
                             if (null in firstGamma) {
                                 change = followB.addAll(row) || change
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun ll1Check() {
+        walker.parseRules.forEach { (_, nonTerm) ->
+            val flw = follow.getOrPut(nonTerm) { mutableSetOf() }
+            nonTerm.alternatives.forEach outer@{ ruleA ->
+                val fstA = firstFun(ruleA.body)
+                nonTerm.alternatives.forEach inner@{ ruleB ->
+                    if (ruleB == ruleA) {
+                        return@inner
+                    }
+
+                    val fstB = firstFun(ruleB.body)
+
+                    if (fstA.intersect(fstB).isNotEmpty()) {
+                        throw ParseException("Grammar is not LL(1)")
+                    }
+
+                    if (null in fstA) {
+                        if (fstB.intersect(flw).isNotEmpty()) {
+                            throw ParseException("Grammar is not LL(1)")
                         }
                     }
                 }
